@@ -14,12 +14,14 @@ import { useMediaQuery } from "@/hooks/use-media-query"
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const isDesktop = useMediaQuery("(min-width: 1024px)")
+  const [selectedModels, setSelectedModels] = useState<string[]>([])
 
   useEffect(() => {
+    setSelectedModels(['model1', 'model2']);
     setSidebarOpen(isDesktop)
   }, [isDesktop])
 
-  const [selectedModels, setSelectedModels] = useState<string[]>(['model1', 'model2'])
+
 
   return (
     <div className="flex h-screen overflow-hidden">
