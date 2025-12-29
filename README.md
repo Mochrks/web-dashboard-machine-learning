@@ -30,7 +30,6 @@ A comprehensive machine learning performance and insights dashboard built with N
 - Shadcn UI
 - React
 
-
 ## 🔧 Prerequisites
 
 - Node.js (v18 or later)
@@ -40,6 +39,7 @@ A comprehensive machine learning performance and insights dashboard built with N
 ## 🛠️ Installation
 
 - **Clone the repository**
+
 ```bash
 git clone https://github.com/Mochrks/web-dashboard-machine-learning.git
 cd web-dashboard-machine-learning
@@ -47,20 +47,20 @@ cd web-dashboard-machine-learning
 
 - **Install dependencies**
 
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
 - **Run the development server**
 
-    ```bash
-    npm run dev
-    ```
+  ```bash
+  npm run dev
+  ```
 
 - The application will be running on [http://localhost:3000](http://localhost:3000).
 
-
 ## Connect with me:
+
 [![GitHub](https://img.shields.io/badge/GitHub-333?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mochrks)
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@Gdvisuel)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/mochrks)

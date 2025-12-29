@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 import {
   Table,
   TableBody,
@@ -9,8 +9,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
-import { Button } from '@/components/ui/button'
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
 
 const generateModelData = (modelCount: number) => {
   return Array.from({ length: modelCount }, (_, i) => ({
@@ -20,11 +20,11 @@ const generateModelData = (modelCount: number) => {
     precision: (Math.random() * 0.3 + 0.7).toFixed(2),
     recall: (Math.random() * 0.3 + 0.7).toFixed(2),
     trainingTime: Math.floor(Math.random() * 1000 + 500),
-  }))
-}
+  }));
+};
 
 export default function ModelComparisonTable({ selectedModels }: { selectedModels: string[] }) {
-  const [modelData, setModelData] = useState(generateModelData(selectedModels.length))
+  const [modelData, setModelData] = useState(generateModelData(selectedModels.length));
 
   return (
     <div>
@@ -59,6 +59,5 @@ export default function ModelComparisonTable({ selectedModels }: { selectedModel
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

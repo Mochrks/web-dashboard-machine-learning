@@ -1,37 +1,55 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-import { Card, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useState, useEffect } from "react";
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const generatePerformanceData = (modelCount: number, dataPoints: number) => {
-  const models = Array.from({ length: modelCount }, (_, i) => `model${i + 1}`)
+  const models = Array.from({ length: modelCount }, (_, i) => `model${i + 1}`);
   return Array.from({ length: dataPoints }, (_, i) => ({
-    timestamp: new Date(Date.now() - (dataPoints - i - 1) * 86400000).toISOString().split('T')[0],
-    ...models.reduce((acc, model) => ({
-      ...acc,
-      [model]: Math.random() * 100
-    }), {})
-  }))
-}
+    timestamp: new Date(Date.now() - (dataPoints - i - 1) * 86400000).toISOString().split("T")[0],
+    ...models.reduce(
+      (acc, model) => ({
+        ...acc,
+        [model]: Math.random() * 100,
+      }),
+      {}
+    ),
+  }));
+};
 
 const modelColors = [
-  'hsl(var(--chart-1))',
-  'hsl(var(--chart-2))',
-  'hsl(var(--chart-3))',
-  'hsl(var(--chart-4))',
-  'hsl(var(--chart-5))',
-]
+  "hsl(var(--chart-1))",
+  "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
+  "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
+];
 
 export default function ModelPerformanceChart({ selectedModels }: { selectedModels: string[] }) {
-  const [data, setData] = useState(generatePerformanceData(5, 30))
-  const [timeRange, setTimeRange] = useState('30')
+  const [data, setData] = useState(generatePerformanceData(5, 30));
+  const [timeRange, setTimeRange] = useState("30");
 
   useEffect(() => {
-    setData(generatePerformanceData(5, parseInt(timeRange)))
-  }, [timeRange])
+    setData(generatePerformanceData(5, parseInt(timeRange)));
+  }, [timeRange]);
 
   return (
     <Card>
@@ -71,6 +89,5 @@ export default function ModelPerformanceChart({ selectedModels }: { selectedMode
         </ResponsiveContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
-

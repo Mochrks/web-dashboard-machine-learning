@@ -1,40 +1,58 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-import { Card, CardContent } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useState, useEffect } from "react";
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const generatePredictiveData = (modelCount: number, dataPoints: number) => {
-  const models = Array.from({ length: modelCount }, (_, i) => `model${i + 1}`)
-  const currentDate = new Date()
+  const models = Array.from({ length: modelCount }, (_, i) => `model${i + 1}`);
+  const currentDate = new Date();
   return Array.from({ length: dataPoints }, (_, i) => {
-    const date = new Date(currentDate.getTime() + i * 86400000)
+    const date = new Date(currentDate.getTime() + i * 86400000);
     return {
-      date: date.toISOString().split('T')[0],
-      ...models.reduce((acc, model) => ({
-        ...acc,
-        [model]: Math.random() * 20 + 80 + (i / dataPoints) * 10
-      }), {})
-    }
-  })
-}
+      date: date.toISOString().split("T")[0],
+      ...models.reduce(
+        (acc, model) => ({
+          ...acc,
+          [model]: Math.random() * 20 + 80 + (i / dataPoints) * 10,
+        }),
+        {}
+      ),
+    };
+  });
+};
 
 const modelColors = [
-  'hsl(var(--chart-1))',
-  'hsl(var(--chart-2))',
-  'hsl(var(--chart-3))',
-  'hsl(var(--chart-4))',
-  'hsl(var(--chart-5))',
-]
+  "hsl(var(--chart-1))",
+  "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
+  "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
+];
 
 export default function PredictiveAnalyticsPanel({ selectedModels }: { selectedModels: string[] }) {
-  const [data, setData] = useState(generatePredictiveData(selectedModels.length, 30))
-  const [predictionRange, setPredictionRange] = useState('30')
+  const [data, setData] = useState(generatePredictiveData(selectedModels.length, 30));
+  const [predictionRange, setPredictionRange] = useState("30");
 
   useEffect(() => {
-    setData(generatePredictiveData(selectedModels.length, parseInt(predictionRange)))
-  }, [predictionRange, selectedModels.length])
+    setData(generatePredictiveData(selectedModels.length, parseInt(predictionRange)));
+  }, [predictionRange, selectedModels.length]);
 
   return (
     <Card>
@@ -72,6 +90,5 @@ export default function PredictiveAnalyticsPanel({ selectedModels }: { selectedM
         </ResponsiveContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
-

@@ -1,75 +1,89 @@
-import Link from "next/link"
-import { Button } from "./ui/button"
-import { ScrollArea } from "./ui/scroll-area"
-import { AlertTriangleIcon, BrainCircuitIcon, ChartBarIcon, CodeIcon, DatabaseIcon, LayoutDashboard, ServerIcon, SettingsIcon, TrendingUpIcon, Workflow, XIcon } from 'lucide-react'
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { ScrollArea } from "./ui/scroll-area";
+import {
+  AlertTriangleIcon,
+  BrainCircuitIcon,
+  ChartBarIcon,
+  CodeIcon,
+  DatabaseIcon,
+  LayoutDashboard,
+  ServerIcon,
+  SettingsIcon,
+  TrendingUpIcon,
+  Workflow,
+  XIcon,
+} from "lucide-react";
 
 const sidebarItems = [
   {
     icon: LayoutDashboard,
     label: "Overview",
-    href: "/"
+    href: "/",
   },
   {
     icon: ChartBarIcon,
     label: "Model Performance",
-    href: "/models"
+    href: "/models",
   },
   {
     icon: DatabaseIcon,
     label: "Dataset Management",
-    href: "/datasets"
+    href: "/datasets",
   },
   {
     icon: BrainCircuitIcon,
     label: "Training Runs",
-    href: "/training"
+    href: "/training",
   },
   {
     icon: TrendingUpIcon,
     label: "Predictions",
-    href: "/predictions"
+    href: "/predictions",
   },
   {
     icon: AlertTriangleIcon,
     label: "Model Monitoring",
-    href: "/monitoring"
+    href: "/monitoring",
   },
   {
     icon: Workflow,
     label: "Experiment Tracking",
-    href: "/experiments"
+    href: "/experiments",
   },
   {
     icon: CodeIcon,
     label: "Feature Engineering",
-    href: "/features"
+    href: "/features",
   },
   {
     icon: ServerIcon,
     label: "Inference Endpoints",
-    href: "/endpoints"
+    href: "/endpoints",
   },
   {
     icon: SettingsIcon,
     label: "Configuration",
-    href: "/settings"
-  }
-]
+    href: "/settings",
+  },
+];
 
 interface SidebarProps {
-  open: boolean
-  setOpen: (open: boolean) => void
-  isDesktop: boolean
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  isDesktop: boolean;
 }
 
 export default function Sidebar({ open, setOpen, isDesktop }: SidebarProps) {
   return (
     <>
-      <aside className={`
-        ${isDesktop ? 'w-64' : 'w-64 fixed inset-y-0 left-0 z-50 md:z-30'}
-        ${!isDesktop && !open ? '-translate-x-full' : 'translate-x-0'}
+      <aside
+        className={`
+        ${isDesktop ? "w-64" : "w-64 fixed inset-y-0 left-0 z-50 md:z-30"}
+        ${!isDesktop && !open ? "-translate-x-full" : "translate-x-0"}
         bg-background transition-transform duration-300 ease-in-out border-r
-      `}>
+      `}
+      >
         <div className="flex h-14 items-center justify-between px-4 border-b">
           <span className="text-lg font-semibold">Machine Learning</span>
           {!isDesktop && (
@@ -82,12 +96,7 @@ export default function Sidebar({ open, setOpen, isDesktop }: SidebarProps) {
           <div className="px-3 py-2">
             <div className="space-y-1">
               {sidebarItems.map((item, index) => (
-                <Button
-                  key={index}
-                  variant="ghost"
-                  className="w-full justify-start"
-                  asChild
-                >
+                <Button key={index} variant="ghost" className="w-full justify-start" asChild>
                   <Link href={item.href} onClick={() => !isDesktop && setOpen(false)}>
                     <item.icon className="mr-2 h-4 w-4" />
                     {item.label}
@@ -105,6 +114,5 @@ export default function Sidebar({ open, setOpen, isDesktop }: SidebarProps) {
         />
       )}
     </>
-  )
+  );
 }
-

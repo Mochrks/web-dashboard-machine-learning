@@ -1,10 +1,26 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
-import { Card, CardContent } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
+import { useState } from "react";
+import {
+  ResponsiveContainer,
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  ZAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 const generateScatterData = (modelCount: number, dataPoints: number) => {
   return Array.from({ length: modelCount }, (_, modelIndex) => ({
@@ -12,28 +28,28 @@ const generateScatterData = (modelCount: number, dataPoints: number) => {
     data: Array.from({ length: dataPoints }, () => ({
       x: Math.random() * 100,
       y: Math.random() * 100,
-      z: Math.random() * 100
-    }))
-  }))
-}
+      z: Math.random() * 100,
+    })),
+  }));
+};
 
 const modelColors = [
-  'hsl(var(--chart-1))',
-  'hsl(var(--chart-2))',
-  'hsl(var(--chart-3))',
-  'hsl(var(--chart-4))',
-  'hsl(var(--chart-5))',
-]
+  "hsl(var(--chart-1))",
+  "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
+  "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
+];
 
 export default function DataExplorationWidget({ selectedModels }: { selectedModels: string[] }) {
-  const [data, setData] = useState(generateScatterData(selectedModels.length, 100))
-  const [xAxis, setXAxis] = useState('x')
-  const [yAxis, setYAxis] = useState('y')
-  const [zAxis, setZAxis] = useState('z')
+  const [data, setData] = useState(generateScatterData(selectedModels.length, 100));
+  const [xAxis, setXAxis] = useState("x");
+  const [yAxis, setYAxis] = useState("y");
+  const [zAxis, setZAxis] = useState("z");
 
   const refreshData = () => {
-    setData(generateScatterData(selectedModels.length, 100))
-  }
+    setData(generateScatterData(selectedModels.length, 100));
+  };
 
   return (
     <Card>
@@ -79,7 +95,7 @@ export default function DataExplorationWidget({ selectedModels }: { selectedMode
             <XAxis type="number" dataKey={xAxis} name={xAxis.toUpperCase()} />
             <YAxis type="number" dataKey={yAxis} name={yAxis.toUpperCase()} />
             <ZAxis type="number" dataKey={zAxis} range={[60, 400]} name={zAxis.toUpperCase()} />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+            <Tooltip cursor={{ strokeDasharray: "3 3" }} />
             <Legend />
             {data.map((entry, index) => (
               <Scatter
@@ -93,6 +109,5 @@ export default function DataExplorationWidget({ selectedModels }: { selectedMode
         </ResponsiveContainer>
       </CardContent>
     </Card>
-  )
+  );
 }
-

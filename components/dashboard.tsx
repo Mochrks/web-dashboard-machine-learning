@@ -1,27 +1,25 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Sidebar from "./sidebar"
-import Navbar from "./navbar"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import ModelPerformanceChart from './model-performance-chart'
-import ModelComparisonTable from './model-comparison-table'
-import PredictiveAnalyticsPanel from './predictive-analytics-panel'
-import DataExplorationWidget from './data-exploration-widget'
-import { useMediaQuery } from "@/hooks/use-media-query"
+import { useState, useEffect } from "react";
+import Sidebar from "./sidebar";
+import Navbar from "./navbar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ModelPerformanceChart from "./model-performance-chart";
+import ModelComparisonTable from "./model-comparison-table";
+import PredictiveAnalyticsPanel from "./predictive-analytics-panel";
+import DataExplorationWidget from "./data-exploration-widget";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function Dashboard() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const isDesktop = useMediaQuery("(min-width: 1024px)")
-  const [selectedModels, setSelectedModels] = useState<string[]>([])
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const [selectedModels, setSelectedModels] = useState<string[]>([]);
 
   useEffect(() => {
-    setSelectedModels(['model1', 'model2']);
-    setSidebarOpen(isDesktop)
-  }, [isDesktop])
-
-
+    setSelectedModels(["model1", "model2"]);
+    setSidebarOpen(isDesktop);
+  }, [isDesktop]);
 
   return (
     <div className="flex h-screen overflow-hidden">
@@ -29,7 +27,7 @@ export default function Dashboard() {
       <div className="flex-1 overflow-auto">
         <Navbar onMenuButtonClick={() => setSidebarOpen(!sidebarOpen)} isDesktop={isDesktop} />
         <main className="p-6">
-          <h1 className="text-3xl font-bold mb-6"> Model  Dashboard</h1>
+          <h1 className="text-3xl font-bold mb-6"> Model Dashboard</h1>
           <Tabs defaultValue="performance" className="w-full">
             <TabsList>
               <TabsTrigger value="performance">Performance</TabsTrigger>
@@ -41,7 +39,9 @@ export default function Dashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle>Model Performance Tracker</CardTitle>
-                  <CardDescription>Compare the performance of selected models over time</CardDescription>
+                  <CardDescription>
+                    Compare the performance of selected models over time
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ModelPerformanceChart selectedModels={selectedModels} />
@@ -63,7 +63,9 @@ export default function Dashboard() {
               <Card>
                 <CardHeader>
                   <CardTitle>Predictive Analytics</CardTitle>
-                  <CardDescription>Future performance predictions based on historical data</CardDescription>
+                  <CardDescription>
+                    Future performance predictions based on historical data
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <PredictiveAnalyticsPanel selectedModels={selectedModels} />
@@ -92,8 +94,6 @@ export default function Dashboard() {
           </div>
         </footer>
       </div>
-
     </div>
-  )
+  );
 }
-
