@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Sidebar from "./sidebar";
-import Navbar from "./navbar";
+import Sidebar from "../demo/sidebar";
+import Navbar from "../demo/navbar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ModelPerformanceChart from "./model-performance-chart";
-import ModelComparisonTable from "./model-comparison-table";
-import PredictiveAnalyticsPanel from "./predictive-analytics-panel";
-import DataExplorationWidget from "./data-exploration-widget";
+import ModelPerformanceChart from "../section/model-performance-chart";
+import ModelComparisonTable from "../section/model-comparison-table";
+import PredictiveAnalyticsPanel from "../section/predictive-analytics-panel";
+import DataExplorationWidget from "../section/data-exploration-widget";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function Dashboard() {
