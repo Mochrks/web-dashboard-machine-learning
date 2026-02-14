@@ -1,96 +1,74 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Sidebar from "../demo/sidebar";
-import Navbar from "../demo/navbar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ModelPerformanceChart from "../section/model-performance-chart";
-import ModelComparisonTable from "../section/model-comparison-table";
-import PredictiveAnalyticsPanel from "../section/predictive-analytics-panel";
-import DataExplorationWidget from "../section/data-exploration-widget";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import MetricSummary from "../section/metric-summary";
+import InferencePerformanceChart from "../section/inference-performance-chart";
+import RecentTrainingSessions from "../section/recent-training-sessions";
+import ComprehensiveCharts from "../section/comprehensive-charts";
 
 export default function Dashboard() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const [selectedModels, setSelectedModels] = useState<string[]>([]);
-
-  useEffect(() => {
-    setSelectedModels(["model1", "model2"]);
-    setSidebarOpen(isDesktop);
-  }, [isDesktop]);
-
   return (
-    <div className="flex h-screen overflow-hidden">
-      <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} isDesktop={isDesktop} />
-      <div className="flex-1 overflow-auto">
-        <Navbar onMenuButtonClick={() => setSidebarOpen(!sidebarOpen)} isDesktop={isDesktop} />
-        <main className="p-6">
-          <h1 className="text-3xl font-bold mb-6"> Model Dashboard</h1>
-          <Tabs defaultValue="performance" className="w-full">
-            <TabsList>
-              <TabsTrigger value="performance">Performance</TabsTrigger>
-              <TabsTrigger value="comparison">Comparison</TabsTrigger>
-              <TabsTrigger value="predictive">Predictive Analytics</TabsTrigger>
-              <TabsTrigger value="exploration">Data Exploration</TabsTrigger>
-            </TabsList>
-            <TabsContent value="performance">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Model Performance Tracker</CardTitle>
-                  <CardDescription>
-                    Compare the performance of selected models over time
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ModelPerformanceChart selectedModels={selectedModels} />
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="comparison">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Model Comparison</CardTitle>
-                  <CardDescription>Detailed comparison of selected models</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ModelComparisonTable selectedModels={selectedModels} />
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="predictive">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Predictive Analytics</CardTitle>
-                  <CardDescription>
-                    Future performance predictions based on historical data
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <PredictiveAnalyticsPanel selectedModels={selectedModels} />
-                </CardContent>
-              </Card>
-            </TabsContent>
-            <TabsContent value="exploration">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Data Exploration</CardTitle>
-                  <CardDescription>Interactive widget for exploring model data</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <DataExplorationWidget selectedModels={selectedModels} />
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
-        </main>
-        <footer className="mt-auto py-6 ">
-          <div className="container mx-auto text-center text-sm text-black dark:text-white">
-            © {new Date().getFullYear()} All rights reserved by{" "}
-            <a href="https://github.com/Mochrks" className="hover:underline text-blue-500">
-              @mochrks
-            </a>
+    <div className="p-4 md:p-8">
+      <div className="max-w-[1600px] mx-auto space-y-8">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+              Intelligence Overview
+            </h2>
+            <p className="text-slate-500 dark:text-slate-400 font-medium">
+              Monitoring enterprise ML assets and model lifecycle performance.
+            </p>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-1 flex gap-1">
+              <button className="px-3 py-1.5 text-xs font-bold bg-blue-600 text-white rounded-md shadow-sm">
+                Real-time
+              </button>
+              <button className="px-3 py-1.5 text-xs font-bold text-slate-500 hover:text-slate-900 dark:hover:text-slate-200">
+                Historical
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Metrics */}
+        <MetricSummary />
+
+        {/* Main Data Section */}
+        <div className="space-y-8">
+          <ComprehensiveCharts />
+
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+            <div className="xl:col-span-2">
+              <RecentTrainingSessions />
+            </div>
+            <div className="xl:col-span-1">
+              <InferencePerformanceChart />
+            </div>
+          </div>
+        </div>
+
+        <footer className="mt-12 py-8 border-t border-slate-200 dark:border-slate-800">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
+            <p className="font-medium">
+              © {new Date().getFullYear()} ML Core v4.2 Enterprise. Built for high-scale
+              intelligence.
+            </p>
+            <div className="flex items-center gap-8">
+              <a href="#" className="hover:text-blue-600 transition-colors font-semibold">
+                Documentation
+              </a>
+              <a href="#" className="hover:text-blue-600 transition-colors font-semibold">
+                Security
+              </a>
+              <a
+                href="https://github.com/Mochrks"
+                className="group flex items-center gap-2 font-bold text-slate-900 dark:text-white"
+              >
+                <span className="p-1 px-2 bg-blue-600/10 text-blue-600 rounded">OSS</span>
+                <span className="group-hover:underline underline-offset-4">@mochrks</span>
+              </a>
+            </div>
           </div>
         </footer>
       </div>
