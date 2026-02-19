@@ -10,7 +10,6 @@ import {
   Database,
   Zap,
   Filter,
-  ChevronRight,
   Layers,
   Clock,
   Activity,

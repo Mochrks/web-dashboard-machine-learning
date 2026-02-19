@@ -4,9 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  CheckCircle,
   Bolt,
-  ArrowRightLeft,
   TrendingUp,
   Minus,
   History,
@@ -14,7 +12,6 @@ import {
   RefreshCcw,
   AlertCircle,
   Activity,
-  Server,
   Waves,
   ShieldCheck,
   Timer,

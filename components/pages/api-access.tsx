@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -16,7 +16,7 @@ import {
   MoreVertical,
   CheckCircle2,
 } from "lucide-react";
-import { Input } from "@/components/ui/input";
+
 import { useState } from "react";
 
 const apiKeys = [

@@ -8,11 +8,6 @@ import {
   TrendingDown,
   RefreshCcw,
   Maximize2,
-  Settings,
-  ChevronRight,
-  BarChart3,
-  LineChart,
-  LayoutGrid,
   History,
   Activity,
   Target,
@@ -30,13 +25,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 
 export default function ModelEvaluation() {

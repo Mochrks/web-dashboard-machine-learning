@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+
 import {
   Settings,
   User,
@@ -17,7 +17,6 @@ import {
   Smartphone,
   Mail,
   ShieldAlert,
-  Key,
   Cpu,
   Cloud,
   Fingerprint,

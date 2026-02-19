@@ -8,7 +8,6 @@ import {
   UserPlus,
   Mail,
   Shield,
-  MoreHorizontal,
   Search,
   Filter,
   ShieldCheck,

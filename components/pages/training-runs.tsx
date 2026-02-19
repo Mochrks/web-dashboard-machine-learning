@@ -4,8 +4,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import {
   Brain,
   Play,
-  Pause,
-  RotateCcw,
   Search,
   Filter,
   MoreVertical,
@@ -14,8 +12,6 @@ import {
   Gauge,
   History,
   Zap,
-  ChevronRight,
-  Clock,
   Terminal,
   ArrowUpRight,
 } from "lucide-react";

@@ -1,12 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import Sidebar from "../demo/sidebar";
-import Navbar from "../demo/navbar";
-import { useMediaQuery } from "@/hooks/use-media-query";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import {
   Table,
   TableBody,
@@ -359,7 +355,8 @@ export default function DataManagement() {
                 <div className="flex-1 flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-amber-500" />
                   <p className="text-[11px] font-medium text-slate-600 flex-1">
-                    Column 'Age' contains missing values (NaN). Recommended: Mean Imputation.
+                    Column &apos;Age&apos; contains missing values (NaN). Recommended: Mean
+                    Imputation.
                   </p>
                 </div>
                 <Button size="sm" className="bg-blue-600 text-white text-[10px] h-8 px-4">
