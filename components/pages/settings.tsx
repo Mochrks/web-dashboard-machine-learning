@@ -323,7 +323,7 @@ export default function AppSettings() {
   };
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1200px] mx-auto space-y-8">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">

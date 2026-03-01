@@ -21,15 +21,15 @@ interface NavbarProps {
 
 export default function Navbar({ onMenuButtonClick, isDesktop }: NavbarProps) {
   return (
-    <header className="sticky top-0 z-40 w-full h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-8 shrink-0">
-      <div className="flex items-center gap-4 w-1/3">
+    <header className="sticky top-0 z-40 w-full h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-4 md:px-8 shrink-0">
+      <div className="flex items-center gap-2 md:gap-4 flex-1">
         {!isDesktop && (
           <Button variant="ghost" size="icon" className="mr-2" onClick={onMenuButtonClick}>
             <Menu className="h-5 w-5" />
             <span className="sr-only">Toggle sidebar</span>
           </Button>
         )}
-        <div className="relative w-full max-w-sm">
+        <div className="relative w-full max-w-sm hidden md:block">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           <Input
             placeholder="Search models, datasets, or sessions..."
@@ -38,7 +38,7 @@ export default function Navbar({ onMenuButtonClick, isDesktop }: NavbarProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-1">
           <Button
             variant="ghost"

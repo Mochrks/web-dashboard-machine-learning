@@ -20,7 +20,7 @@ import {
 
 export default function Monitoring() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1400px] mx-auto space-y-10">
         {/* Status Hero */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 bg-white dark:bg-slate-950 p-8 rounded-[32px] border border-slate-200 dark:border-slate-800 shadow-xl relative overflow-hidden">

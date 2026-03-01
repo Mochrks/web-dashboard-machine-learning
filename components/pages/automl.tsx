@@ -39,7 +39,7 @@ const activeJobs = [
 
 export default function AutoML() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1400px] mx-auto space-y-8">
         {/* Hero Section */}
         <div className="relative rounded-[40px] overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl p-10 md:p-14 group">

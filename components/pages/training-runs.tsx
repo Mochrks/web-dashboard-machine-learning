@@ -65,7 +65,7 @@ const trainingRuns = [
 
 export default function TrainingRuns() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1400px] mx-auto space-y-10">
         {/* Visual Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">

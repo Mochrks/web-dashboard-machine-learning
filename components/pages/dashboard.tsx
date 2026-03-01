@@ -47,30 +47,6 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-
-        <footer className="mt-12 py-8 border-t border-slate-200 dark:border-slate-800">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-500">
-            <p className="font-medium">
-              © {new Date().getFullYear()} ML Core v4.2 Enterprise. Built for high-scale
-              intelligence.
-            </p>
-            <div className="flex items-center gap-8">
-              <a href="#" className="hover:text-blue-600 transition-colors font-semibold">
-                Documentation
-              </a>
-              <a href="#" className="hover:text-blue-600 transition-colors font-semibold">
-                Security
-              </a>
-              <a
-                href="https://github.com/Mochrks"
-                className="group flex items-center gap-2 font-bold text-slate-900 dark:text-white"
-              >
-                <span className="p-1 px-2 bg-blue-600/10 text-blue-600 rounded">OSS</span>
-                <span className="group-hover:underline underline-offset-4">@mochrks</span>
-              </a>
-            </div>
-          </div>
-        </footer>
       </div>
     </div>
   );

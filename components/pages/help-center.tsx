@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 
 export default function HelpCenter() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1200px] mx-auto space-y-12">
         {/* Hero Search Section */}
         <div className="text-center space-y-8 py-8 relative">

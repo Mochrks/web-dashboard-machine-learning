@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../demo/sidebar";
 import Navbar from "../demo/navbar";
+import Footer from "./footer";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
@@ -25,7 +26,10 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <Navbar onMenuButtonClick={() => setSidebarOpen(!sidebarOpen)} isDesktop={isDesktop} />
 
-        <main className="flex-1 overflow-y-auto">{children}</main>
+        <main className="flex-1 overflow-y-auto flex flex-col">
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </main>
       </div>
     </div>
   );

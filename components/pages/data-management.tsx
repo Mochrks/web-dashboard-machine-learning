@@ -111,7 +111,7 @@ const datasets = [
 
 export default function DataManagement() {
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       <div className="max-w-[1400px] mx-auto space-y-8">
         {/* Breadcrumbs & Title */}
         {/* Breadcrumbs & Title */}
