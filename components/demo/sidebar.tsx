@@ -19,6 +19,7 @@ import {
   HelpCircle,
   XIcon,
   ChevronRight,
+  User,
 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
@@ -113,13 +114,9 @@ export default function Sidebar({ open, setOpen, isDesktop }: SidebarProps) {
 
         <div className="p-4 border-t border-slate-800 mt-auto">
           <div className="flex items-center gap-3 bg-slate-900/50 p-2 rounded-xl border border-slate-800">
-            <Avatar className="h-8 w-8 rounded-full ring-2 ring-slate-800">
-              <AvatarImage
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXT4ju-bqdPgSbUdjrX9bTqhWhyhvkJgxyNAxMumGeddukG0QsUfWWlgxlNh2efMMFrt5_4V6b6ijHysHCUU9bHhbiM7_njxagcl6qNfVvrtdL5b6NxHSsKdsWjHMk6CcEiO1MudOx5vw4pAjQYRVoY2W9OpTiUbjZWfsRk8WIHNUxSBI8W0qtVzY3YDRAm_9_Ynda4UYjNVVRZdbF7QjCQ9J4SZ2lX-hsMw2kzUCKq4nzpndt63TKi7Qmu1LPoNKkB7utDIYK7Y4"
-                alt="Alex Chen"
-              />
-              <AvatarFallback className="bg-blue-600 text-white">AC</AvatarFallback>
-            </Avatar>
+            <div className="h-8 w-8 rounded-full ring-2 ring-slate-800 flex items-center justify-center bg-slate-800 text-slate-400">
+              <User className="h-4 w-4" />
+            </div>
             <div className="flex-1 min-w-0">
               <p className="text-xs font-bold text-white truncate">Alex Chen</p>
               <p className="text-[10px] text-slate-500 truncate">Lead Data Scientist</p>
