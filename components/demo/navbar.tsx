@@ -11,7 +11,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { ModeToggle } from "./mode-toggle";
 
 interface NavbarProps {
@@ -68,8 +67,8 @@ export default function Navbar({ onMenuButtonClick, isDesktop }: NavbarProps) {
                       <div className="flex-1 space-y-1">
                         <p className="text-sm font-medium">Model Training Complete</p>
                         <p className="text-xs text-slate-500 line-clamp-2">
-                          Your experiment "BERT-Large-FineTune" has finished training with 98.2%
-                          accuracy.
+                          Your experiment &quot;BERT-Large-FineTune&quot; has finished training with
+                          98.2% accuracy.
                         </p>
                         <div className="flex items-center gap-1 text-[10px] text-slate-400 mt-1">
                           <Clock className="size-3" />

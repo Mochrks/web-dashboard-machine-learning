@@ -21,7 +21,6 @@ import {
   ChevronRight,
   User,
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const sidebarItems = [
   {
